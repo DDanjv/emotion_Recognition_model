@@ -6,12 +6,8 @@ import cv2
 
 
 def Singular_image_process(path_to_image):
-    #print(f"file: {path_to_image}")
     Image = cv2.imread(path_to_image)
     Image = cv2.cvtColor(Image, cv2.COLOR_BGR2GRAY)
-    #Image = cv2.bilateralFilter(Image, d=5, sigmaColor=50, sigmaSpace=50) 
-    #sobel_x = cv2.Sobel(Image, cv2.CV_64F, dx=1, dy=0, ksize=3)
-    #Image = cv2.Canny(sobel_x, threshold1=50, threshold2=150)
     transform = transforms.Compose([
     transforms.ToTensor(),
     ])
@@ -56,8 +52,6 @@ def effects_image_(X):
     )
     hog_features, _ = hog.compute(X, winStride=(8, 8), padding=(32, 32))
     return edges, sobel_edge, blurred, hog_features
-
-    #have to add the other 3 in tmw 
     
 
 
